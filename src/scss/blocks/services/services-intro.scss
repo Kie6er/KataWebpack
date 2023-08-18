@@ -1,0 +1,295 @@
+.services-intro {
+	&--padding--42 {
+		padding-top: 4.2rem;
+
+		@include bp($tablet) {
+			padding-top: 2.4rem;
+		}
+	}
+	// .services-intro__container
+	&__container {
+		position: relative;
+	}
+	// .services-intro__header
+	&__header {
+		margin-bottom: 1rem;
+
+		@include bp($tablet) {
+			margin-bottom: 1rem;
+		}
+
+		@include bp($mobile) {
+			margin-bottom: 2.4rem;
+		}
+	}
+	// .services-intro__nav
+	&__nav {
+		margin-bottom: 2rem;
+
+		@include bp($tablet) {
+			margin-bottom: 1.5rem;
+		}
+
+		@include bp($mobile) {
+			margin-bottom: 2.4rem;
+		}
+	}
+}
+
+.intro-header {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.8rem;
+
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: 1rem;
+	}
+	// .intro-header__right
+	&__right {
+		display: flex;
+		align-items: center;
+		column-gap: 3.2rem;
+	}
+
+	@include bp($tablet) {
+		row-gap: 3.2rem;
+	}
+
+	@include bp($tablet) {
+		row-gap: 2.4rem;
+	}
+}
+
+.intro-button {
+	display: flex;
+	align-items: center;
+	column-gap: 1rem;
+	cursor: pointer;
+
+	transition: all 0.3s linear;
+	// .intro-buttons__text
+	&__text {
+		color: $black;
+		text-align: right;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1.5; /* 150% */
+		letter-spacing: -0.2px;
+	}
+
+	&:hover &__text,
+	&:focus &__text {
+		text-decoration: underline;
+	}
+
+	&:hover &__btn,
+	&:active &__btn,
+	&:focus &__btn {
+		background-color: lighten($pink, 15);
+	}
+
+	&:focus &__btn {
+		outline: 2px solid $cian-border;
+	}
+
+	@include bp($notepad) {
+		display: none;
+	}
+}
+
+.intro-nav {
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+
+		@include bp($tablet) {
+			flex-wrap: nowrap;
+			overflow: auto;
+			min-width: 100%;
+		}
+	}
+
+	// .intro-nav__link
+	&__link {
+		display: inline-block;
+		padding: 0.3em 1.2em;
+		background: none;
+
+		color: $gray;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1.5;
+		white-space: nowrap;
+		letter-spacing: -0.2px;
+
+		transition: background 0.2s linear;
+
+		&.active,
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			background-color: $white;
+			border-radius: 0.4em;
+			border: 2px solid #b8ffec;
+			padding: 0.175em 1.075em;
+		}
+	}
+}
+
+.intro-info {
+	display: flex;
+	justify-content: space-between;
+	column-gap: 3.6rem;
+	// .intro-info__left
+	&__left {
+		width: 50%;
+
+		@include bp($mobile) {
+			width: 100%;
+			margin-bottom: 1.6rem;
+		}
+	}
+	// .intro-info__text
+	&__text {
+		overflow: hidden;
+
+		color: $black;
+		font-weight: 400;
+		line-height: 142.857%;
+		letter-spacing: 0.2px;
+
+		margin: 1.4rem 0;
+		height: 17rem;
+
+		transition: all 0.5s ease;
+
+		@include bp($tablet) {
+			margin: 0;
+			margin-bottom: 1.4rem;
+		}
+
+		@include bp($tabletS) {
+			height: 13.5rem;
+		}
+
+		@include bp($mobile) {
+			height: 11rem;
+
+			margin-bottom: 0.6rem;
+		}
+
+		> p {
+			@include bp($tablet) {
+				&:not(:last-child) {
+					margin-bottom: 1.5rem;
+				}
+			}
+
+			@include bp($mobile) {
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+
+		&.show {
+			height: auto;
+
+			@include bp($mobile) {
+				height: auto;
+			}
+		}
+	}
+	// .intro-info__right
+	&__right {
+		width: 50%;
+
+		@include bp($mobile) {
+			width: 100%;
+		}
+	}
+	// .intro-info__image
+	&__image {
+		display: flex;
+		align-items: center;
+
+		width: 100%;
+		max-height: 30.7rem;
+		height: 100%;
+		overflow: hidden;
+
+		border-radius: 0.6rem;
+
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+
+		@include bp($mobileS) {
+			border-radius: 0;
+			width: calc(100% + 3.2rem);
+			margin-left: -1.6rem;
+			max-height: 17.6rem;
+		}
+	}
+
+	@include bp($tablet) {
+		column-gap: 4.5rem;
+	}
+
+	@include bp($tabletS) {
+		column-gap: 2rem;
+	}
+
+	@include bp($mobile) {
+		flex-direction: column;
+		column-gap: 0;
+	}
+}
+
+.show-button {
+	display: inline-flex;
+	align-items: center;
+	background: none;
+
+	> span {
+		color: $black;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1.5;
+		letter-spacing: -0.2px;
+
+		padding-left: 1.4rem;
+	}
+
+	&:hover > span,
+	&:focus > span,
+	&:active > span {
+		text-decoration: underline;
+	}
+
+	&__arrows {
+		display: flex;
+		flex-direction: column;
+
+		span {
+			font-size: 0.6rem;
+			color: $cian;
+		}
+	}
+
+	&.show &__arrows span::before {
+		display: block;
+		transform: rotate(180deg);
+	}
+
+	@include bp($mobile) {
+		display: none;
+	}
+}

@@ -1,0 +1,48 @@
+.services-repair {
+	// .services-repair__header
+	&__header {
+		margin-bottom: 2.4rem;
+
+		@include bp($mobile) {
+			margin-bottom: 1.6rem;
+		}
+	}
+	// .services-repair__swiper
+	&__swiper {
+		height: 17.5rem;
+		overflow: hidden;
+		transition: all 0.5s ease;
+
+		&.show {
+			height: auto;
+		}
+
+		@include bp($mobile) {
+			height: auto;
+		}
+	}
+	// .services-repair__wrapper
+	&__wrapper {
+		margin-bottom: 1rem;
+	}
+	// .services-repair__slide
+	&__slide {
+		height: 16rem;
+	}
+}
+
+.slider-slide {
+	// .slider-slide__title
+	&__title {
+		color: $black;
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 1.5; /* 150% */
+		letter-spacing: -0.2px;
+		align-self: flex-start;
+	}
+	// .slider-slide__button
+	&__button {
+		align-self: flex-end;
+	}
+}
