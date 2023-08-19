@@ -1,5 +1,3 @@
-// let slider;
-
 export function mobileSwiper() {
 	mobileSlider();
 	initializedSwiper();
@@ -11,9 +9,14 @@ export function mobileSwiper() {
 }
 
 const allSwiper = document.querySelectorAll('[data-swiper]');
-let swipers = document.querySelectorAll('.slider-container');
-let newSlider;
+const mediaQuery = window.matchMedia('(max-width: 575px)');
+let swiperBrands = document.querySelector('.services-brands__swiper');
+let swiperRepair = document.querySelector('.services-repair__swiper');
+let swiperPrice = document.querySelector('.services-price__table');
 
+let sliderBrands;
+let sliderRepair;
+let sliderPrice;
 
 function mobileSlider() {
 	allSwiper.forEach((el) => {
@@ -21,7 +24,9 @@ function mobileSlider() {
 
 		if (window.outerWidth <= 575) {
 			addClasses(el, data);
-		} else {
+		}
+
+		if (window.outerWidth > 575) {
 			removeClasses(el, data);
 		}
 	});
@@ -52,33 +57,97 @@ function addClasses(element, d) {
 }
 
 function initializedSwiper() {
+	swiperInitBrands();
+	swiperInitRepair();
+	swiperInitPrice();
+}
 
-	swipers.forEach((el) => {
-		if (window.innerWidth <= 575 && el.dataset.mobile == 'false' && el.classList.contains('swiper')) {
-			newSlider = new Swiper(el, {
-				slidesPerView: "auto",
-				spaceBetween: 16,
-				pagination: {
-					el: el.querySelector('.slider-pagination'),
-					clickable: true
+function swiperInitBrands() {
+	if (mediaQuery.matches) {
+		sliderBrands = new Swiper(swiperBrands, {
+			slidesPerView: "auto",
+			spaceBetween: 16,
+			pagination: {
+				el: swiperBrands.querySelector('.slider-pagination'),
+				clickable: true
+			},
+			breakpoints: {
+				350: {
+					slidesPerView: 1
 				},
-				breakpoints: {
-					350: {
-						slidesPerView: 1
-					},
 
-					500: {
-						slidesPerView: 2
-					}
+				500: {
+					slidesPerView: 2
+				}
+			},
+		});
+		swiperBrands.dataset.mobile = 'true';
+	}
+
+	if (!mediaQuery.matches) {
+		if (swiperBrands.classList.contains('swiper-initialized')) {
+			sliderBrands.destroy(true, true)
+		}
+		swiperBrands.dataset.mobile = 'false';
+	}
+}
+
+function swiperInitRepair() {
+	if (mediaQuery.matches) {
+		sliderRepair = new Swiper(swiperRepair, {
+			slidesPerView: "auto",
+			spaceBetween: 16,
+			pagination: {
+				el: swiperRepair.querySelector('.slider-pagination'),
+				clickable: true
+			},
+			breakpoints: {
+				350: {
+					slidesPerView: 1
 				},
-			});
-			el.dataset.mobile = 'true';
+
+				500: {
+					slidesPerView: 2
+				}
+			},
+		});
+		swiperRepair.dataset.mobile = 'true';
+	}
+
+	if (!mediaQuery.matches) {
+		if (swiperRepair.classList.contains('swiper-initialized')) {
+			sliderRepair.destroy(true, true)
 		}
-		if (window.innerWidth > 575) {
-			if (el.classList.contains('swiper-initialized')) {
-				newSlider.destroy(true, true)
-			}
-			el.dataset.mobile = 'false';
+		swiperRepair.dataset.mobile = 'false';
+	}
+}
+
+function swiperInitPrice() {
+	if (mediaQuery.matches) {
+		sliderPrice = new Swiper(swiperPrice, {
+			slidesPerView: "auto",
+			spaceBetween: 16,
+			pagination: {
+				el: swiperPrice.querySelector('.slider-pagination'),
+				clickable: true
+			},
+			breakpoints: {
+				350: {
+					slidesPerView: 1
+				},
+
+				500: {
+					slidesPerView: 2
+				}
+			},
+		});
+		swiperPrice.dataset.mobile = 'true';
+	}
+
+	if (!mediaQuery.matches) {
+		if (swiperPrice.classList.contains('swiper-initialized')) {
+			sliderPrice.destroy(true, true)
 		}
-	});
+		swiperPrice.dataset.mobile = 'false';
+	}
 }
