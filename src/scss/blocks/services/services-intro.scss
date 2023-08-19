@@ -292,4 +292,10 @@
 	@include bp($mobile) {
 		display: none;
 	}
+
+	&--display {
+		@include bp($mobile) {
+			display: inline-flex;
+		}
+	}
 }
